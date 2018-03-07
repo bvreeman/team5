@@ -86,9 +86,11 @@ let equalButton = ["="];
 
 });
 
-$("#panel-body").on("click", function() {
-
-})
+$(".number").click(function() {
+    let clickedNumber = $(this).val();
+    console.log(clickedNumber);
+    document.querySelector("#first-number").innerHTML=(clickedNumber);
+});
 
 
 </script>
