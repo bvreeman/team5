@@ -47,8 +47,8 @@
                     <button id="button-multiply" class="btn btn-danger operator" value="times"><h1>&times;</h1></button>
                     <br><br>
                     <button id="button-0" class="btn btn-primary number" value="0"><h1>0</h1></button>
+                    <button id="button-decimal" class="btn btn-primary number" value="."><h1>.</h1></button>
                     <button id="button-divide" class="btn btn-danger operator" value="divide"><h1>&divide;</h1></button>
-                    <button id="button-power" class="btn btn-danger operator" value="decimal"><h1>.</h1></button>
                     <button id="button-equal" class="btn btn-success equal" value="equals"><h1>=</h1></button>
                     <br><br>
                     <button id="button-clear" class="btn btn-default clear" value="clear"><h1>clear</h1></button>
@@ -80,18 +80,55 @@
 $(document).ready(function(){
 
 // Your code here...
-let numberButtons = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-let operatorButtons = ["+", "-", "*", "%", "."]
-let equalButton = ["="];
 
-});
+//variables
+let firstNumber = "";
+let secondNumber = "";
+let operator = "";
+let result = "";
+
+//clear func
+    const clear = function() {
+        let firstNumber = "";
+        let secondNumber = "";
+        let operator = "";
+        let result = "";  
+        $('#first-number').empty();
+        $('#operator').empty();
+        $('#second-number').empty();
+
+
+}
+
+$("#button-clear").click(clear)
+
+//number func
+
+
 
 $(".number").click(function() {
-    let clickedNumber = $(this).val();
-    console.log(clickedNumber);
-    document.querySelector("#first-number").innerHTML=(clickedNumber);
-});
+    if(operator === "") {
+        firstNumber += $(this).val();
+        $('#first-number').text(firstNumber);
+    } else {
+        secondNumber += $(this).val();
+        $('#second-number').text(secondNumber);
+    }
+})
 
+
+
+//operator func
+
+$(".operator").click(function() {
+    operator = $(this).text();
+    $('#operator').text(operator);
+
+})
+
+//calculate func
+
+});
 
 </script>
 <script
